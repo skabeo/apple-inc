@@ -1,0 +1,82 @@
+body {
+  color: white;
+}
+
+.homeContainer {
+  display: flex;
+  align-items: center;
+  background-color: #6daabb;
+  color: white;
+  min-height: 15vh;
+}
+
+.logoContainer {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logo {
+  width: 10vw;
+  margin-left: auto;
+}
+
+.company {
+  width: 50%;
+  padding-left: 20px;
+}
+
+.financial {
+  font-size: 12px;
+  background-color: #5a8e9c;
+  padding: 2px 5px;
+  font-weight: 500;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 45vh;
+}
+
+.arrow,
+.flexEnd {
+  align-self: flex-end;
+}
+
+.stateContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.income,
+.equity {
+  background-color: #5a8e9c;
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.balance,
+.cashflow {
+  background-color: #4d7b88;
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.incomeIcon,
+.balanceIcon,
+.equityIcon,
+.cashflowIcon {
+  font-size: 50px;
+  align-self: center;
+}
+
+.display {
+  font-size: 12px;
+  align-self: flex-end;
+  margin-top: 5px;
+}
