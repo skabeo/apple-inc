@@ -20,6 +20,24 @@ export const fetchIncomeData = createAsyncThunk('fetch/incomeData', async () => 
   }
 });
 
+export const fetchBalanceData = createAsyncThunk('fetch/BalanceData', async () => {
+  try {
+    const response = await axios.get(`https://financialmodelingprep.com/api/v3/balance-sheet-statement/AAPL?limit=120&apikey=${appId}`);
+    return response.data[0];
+  } catch (error) {
+    return error;
+  }
+});
+
+export const fetchCashData = createAsyncThunk('fetch/CashData', async () => {
+  try {
+    const response = await axios.get(`https://financialmodelingprep.com/api/v3/cash-flow-statement/AAPL?limit=120&apikey=${appId}`);
+    return response.data[0];
+  } catch (error) {
+    return error;
+  }
+});
+
 const statementSlice = createSlice({
   name: 'statements',
   initialState,
@@ -28,6 +46,12 @@ const statementSlice = createSlice({
     builder
       .addCase(fetchIncomeData.fulfilled, (state, action) => {
         state.incomeStatement = action.payload;
+      })
+      .addCase(fetchBalanceData.fulfilled, (state, action) => {
+        state.balanceSheet = action.payload;
+      })
+      .addCase(fetchCashData.fulfilled, (state, action) => {
+        state.cashFlow = action.payload;
       });
   },
 });
