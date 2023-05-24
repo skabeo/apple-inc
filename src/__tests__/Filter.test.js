@@ -8,7 +8,7 @@ describe('Filter', () => {
     const filterValue = 'initial value';
     const onFilterChange = jest.fn();
     const { getByPlaceholderText } = render(
-      <Filter filterValue={filterValue} onFilterChange={onFilterChange} />
+      <Filter filterValue={filterValue} onFilterChange={onFilterChange} />,
     );
     const inputElement = getByPlaceholderText('Search');
 

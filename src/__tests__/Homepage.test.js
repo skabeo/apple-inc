@@ -36,7 +36,7 @@ describe('Homepage', () => {
     const { container } = render(
       <BrowserRouter>
         <Homepage />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(getByText(container, 'Apple')).toBeInTheDocument();

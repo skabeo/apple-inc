@@ -9,12 +9,10 @@ describe('Back', () => {
     const { container } = render(
       <BrowserRouter>
         <Back />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const linkElement = container.querySelector('a');
-    const backIconElement = container.querySelector('svg[aria-label="back"]');
-    const userIconElement = container.querySelector('svg[aria-label="user"]');
 
     expect(linkElement).toBeInTheDocument();
   });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { useSelector, useDispatch } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
@@ -19,12 +19,6 @@ describe('Equity', () => {
       totalEquity: 2250000,
     };
 
-    const mockFilteredData = [
-      ['commonStock', 500000],
-      ['accumulatedOtherComprehensiveIncomeLoss', -50000],
-      ['totalEquity', 2250000],
-    ];
-
     useSelector.mockImplementation((selectorFn) => selectorFn({
       data: {
         balanceSheet: mockData,
@@ -37,7 +31,7 @@ describe('Equity', () => {
     const { getByText, getByPlaceholderText } = render(
       <MemoryRouter>
         <Equity />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(getByText('Apple Inc')).toBeInTheDocument();

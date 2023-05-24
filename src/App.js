@@ -12,11 +12,11 @@ import { fetchIncomeData, fetchBalanceData, fetchCashData } from './redux/statem
 function App() {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(fetchIncomeData());
-  //   dispatch(fetchBalanceData());
-  //   dispatch(fetchCashData());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchIncomeData());
+    dispatch(fetchBalanceData());
+    dispatch(fetchCashData());
+  }, [dispatch]);
 
   return (
     <div className="App">
