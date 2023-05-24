@@ -11,4 +11,48 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #4d7b88;
+  padding-bottom: 1000px;
+}
+
+.no-result {
+  font-style: italic;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+.myTable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-description {
+  font-weight: 700;
+  width: 70%;
+  text-align: start;
+  padding-left: 10px;
+}
+
+.dollar {
+  font-weight: 700;
+  width: 30%;
+  text-align: center;
+}
+
+.odd {
+  padding: 20px 10px;
+}
+
+.even {
+  padding: 20px 10px;
+  width: 50%;
+  text-align: start;
+  background-color: #5a8e9c;
+}
+
+.even2 {
+  padding: 20px 10px;
+  width: 50%;
+  text-align: end;
+  background-color: #5a8e9c;
 }
