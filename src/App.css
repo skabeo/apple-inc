@@ -11,7 +11,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #4d7b88;
-  padding-bottom: 1000px;
 }
 
 .no-result {
@@ -55,4 +54,25 @@ body {
   width: 50%;
   text-align: end;
   background-color: #5a8e9c;
+}
+
+@media screen and (min-width: 768px) {
+  .App {
+    max-width: 700px;
+    min-height: 100vh;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    box-shadow:
+      20px 20px 60px #416974,
+      -20px -20px 60px #598d9c;
+  }
+
+  .list-description,
+  .dollar,
+  .odd,
+  .even,
+  .even2 {
+    padding: 20px;
+  }
 }
