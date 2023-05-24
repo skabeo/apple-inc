@@ -23,7 +23,7 @@ const Cashflow = () => {
       <Back />
       <div className={styles.description}>
         <p>Apple Inc</p>
-        <p>Balance Sheet</p>
+        <p>Cash Flow</p>
         <p>Year Ended December 31</p>
       </div>
       <div className={styles.operations}>
