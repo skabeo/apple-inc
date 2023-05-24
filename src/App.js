@@ -13,8 +13,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(fetchIncomeData());
-    // dispatch(fetchBalanceData());
+    dispatch(fetchIncomeData());
+    dispatch(fetchBalanceData());
     dispatch(fetchCashData());
   }, [dispatch]);
 

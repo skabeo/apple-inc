@@ -34,16 +34,16 @@ const Equity = () => {
           />
         </div>
         <div>
-          <div className='myTable'>
-            <p className='list-description'>Description</p>
-            <p className='dollar'>$</p>
+          <div className="myTable">
+            <p className="list-description">Description</p>
+            <p className="dollar">$</p>
           </div>
           <div>
             {filteredData.length === 0 ? (
-              <p className='no-result'>No search results</p>
+              <p className="no-result">No search results</p>
             ) : (
               filteredData.map(([key, value], index) => (
-                <div key={key} className='myTable'>
+                <div key={key} className="myTable">
                   <p className={index % 2 === 0 ? 'even' : 'odd'}>{key}</p>
                   <p className={index % 2 === 0 ? 'even2' : 'odd'}>{value.toLocaleString()}</p>
                 </div>
