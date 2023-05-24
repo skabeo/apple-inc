@@ -13,7 +13,7 @@ const Homepage = () => {
   const { incomeStatement, balanceSheet, cashFlow } = useSelector((state) => state.data);
 
   return (
-    <>
+    <div className={styles.mainContainer}>
       <Header />
       <div className={styles.homeContainer}>
         <div className={styles.logoContainer}>
@@ -96,7 +96,7 @@ const Homepage = () => {
         </NavLink>
 
       </div>
-    </>
+    </div>
   );
 };
 
