@@ -13,7 +13,7 @@ const Equity = () => {
 
   const data = useSelector((state) => state.data.balanceSheet);
 
-  const keysToFilter = ['commonStock', 'retainedEarnings', 'accumulatedOtherComprehensiveIncomeLoss', 'totalEquity', 'totalInvestments'];
+  const keysToFilter = ['commonStock', 'retainedEarnings', 'accumulatedOtherComprehensiveIncomeLoss', 'totalEquity'];
 
   const filteredData = Object.entries(data).filter(([key]) => keysToFilter.includes(key)
     && key.toLowerCase().includes(filterValue.toLowerCase()));
