@@ -23,7 +23,7 @@ const Equity = () => {
       <Back />
       <div className={styles.description}>
         <p>Apple Inc</p>
-        <p>Balance Sheet</p>
+        <p>Statement of Equity</p>
         <p>Year Ended December 31</p>
       </div>
       <div className={styles.operations}>
@@ -33,28 +33,24 @@ const Equity = () => {
             onFilterChange={handleFilterChange}
           />
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>$</th>
-            </tr>
-          </thead>
-          <tbody>
+        <div>
+          <div className='myTable'>
+            <p className='list-description'>Description</p>
+            <p className='dollar'>$</p>
+          </div>
+          <div>
             {filteredData.length === 0 ? (
-              <tr>
-                <td colSpan="2">No search results</td>
-              </tr>
+              <p className='no-result'>No search results</p>
             ) : (
-              filteredData.map(([key, value]) => (
-                <tr key={key} className={styles.myTable}>
-                  <td>{key}</td>
-                  <td>{value.toLocaleString()}</td>
-                </tr>
+              filteredData.map(([key, value], index) => (
+                <div key={key} className='myTable'>
+                  <p className={index % 2 === 0 ? 'even' : 'odd'}>{key}</p>
+                  <p className={index % 2 === 0 ? 'even2' : 'odd'}>{value.toLocaleString()}</p>
+                </div>
               ))
             )}
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>
     </div>
   );
