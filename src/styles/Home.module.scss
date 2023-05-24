@@ -86,3 +86,28 @@ body {
 .navLink {
   color: white;
 }
+
+@media screen and (min-width: 768px) {
+  .mainContainer {
+    height: 95vh;
+  }
+
+  .logo {
+    width: 5vw;
+  }
+
+  .homeContainer {
+    height: 25%;
+  }
+
+  .cards {
+    height: 60vh;
+  }
+
+  .income:hover,
+  .balance:hover,
+  .cashflow:hover,
+  .equity:hover {
+    box-shadow: 20px 20px 60px #416974;
+  }
+}
