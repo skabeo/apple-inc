@@ -1,0 +1,132 @@
+body {
+  color: white;
+}
+
+.homeContainer {
+  display: flex;
+  align-items: center;
+  background-color: #6daabb;
+  color: white;
+  min-height: 15vh;
+}
+
+.logoContainer {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logo {
+  width: 10vw;
+  margin-left: auto;
+}
+
+.company {
+  width: 50%;
+  padding-left: 20px;
+}
+
+.financial {
+  font-size: 12px;
+  background-color: #5a8e9c;
+  padding: 2px 5px;
+  font-weight: 500;
+}
+
+.arrow,
+.flexEnd {
+  align-self: flex-end;
+}
+
+.stateContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.income,
+.equity {
+  background-color: #5a8e9c;
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.balance,
+.cashflow {
+  background-color: #4d7b88;
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.incomeIcon,
+.balanceIcon,
+.equityIcon,
+.cashflowIcon {
+  font-size: 50px;
+  align-self: center;
+}
+
+.display {
+  font-size: 12px;
+  align-self: flex-end;
+  margin-top: 5px;
+}
+
+.navLink {
+  color: white;
+}
+
+.searchBar {
+  margin-bottom: 20px;
+
+  input[type='text'] {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 45vh;
+}
+
+.noResults {
+  font-style: italic;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .mainContainer {
+    height: 95vh;
+  }
+
+  .logo {
+    width: 5vw;
+  }
+
+  .homeContainer {
+    height: 25%;
+  }
+
+  .cards {
+    height: 60vh;
+  }
+
+  .income:hover,
+  .balance:hover,
+  .cashflow:hover,
+  .equity:hover {
+    box-shadow: 20px 20px 60px #416974;
+  }
+}

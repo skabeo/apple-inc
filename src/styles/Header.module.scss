@@ -1,0 +1,13 @@
+$blue: #5a8e9c;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: $blue;
+  color: white;
+}
+
+.icon {
+  font-size: 20px;
+}

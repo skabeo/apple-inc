@@ -1,0 +1,21 @@
+.description {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.operations {
+  font-size: 12px;
+}
+
+.searchField {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: fit-content;
+  border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .operations {
+    font-size: 15px;
+  }
+}

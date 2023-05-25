@@ -1,0 +1,31 @@
+$blue: #5a8e9c;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: $blue;
+  color: white;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.link {
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .link {
+    flex-shrink: 0;
+    padding: 1px 2px;
+    border-radius: 50%;
+    transition: all 0.25s;
+  }
+
+  .link:hover {
+    background-color: rgba(255, 248, 248, 0.3);
+  }
+}
