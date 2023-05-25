@@ -10,7 +10,9 @@ import styles from '../styles/Home.module.scss';
 import Header from './Header';
 
 const Homepage = () => {
-  const { incomeStatement, balanceSheet, cashFlow, isLoading } = useSelector((state) => state.data);
+  const {
+    incomeStatement, balanceSheet, cashFlow, isLoading,
+  } = useSelector((state) => state.data);
 
   if (isLoading) {
     return (
@@ -29,11 +31,11 @@ const Homepage = () => {
           </div>
         </div>
         <p className={styles.financial}>FINANCIAL STATEMENTS</p>
-        <div className='loading-container'>
-          <span className='loading'></span>
+        <div className="loading-container">
+          <span className="loading" />
         </div>
       </>
-    )
+    );
   }
 
   return (
