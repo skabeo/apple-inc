@@ -10,7 +10,31 @@ import styles from '../styles/Home.module.scss';
 import Header from './Header';
 
 const Homepage = () => {
-  const { incomeStatement, balanceSheet, cashFlow } = useSelector((state) => state.data);
+  const { incomeStatement, balanceSheet, cashFlow, isLoading } = useSelector((state) => state.data);
+
+  if (isLoading) {
+    return (
+      <>
+        <Header />
+        <div className={styles.homeContainer}>
+          <div className={styles.logoContainer}>
+            <img className={styles.logo} src={logo} alt="logo" />
+          </div>
+          <div className={styles.company}>
+            <h3>Apple</h3>
+            <h3>Inc</h3>
+            <span style={{ fontSize: '12px' }}>
+              2022 calender year
+            </span>
+          </div>
+        </div>
+        <p className={styles.financial}>FINANCIAL STATEMENTS</p>
+        <div className='loading-container'>
+          <span className='loading'></span>
+        </div>
+      </>
+    )
+  }
 
   return (
     <div className={styles.mainContainer}>
