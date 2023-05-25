@@ -44,13 +44,25 @@ const statementSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchIncomeData.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(fetchIncomeData.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.incomeStatement = action.payload;
       })
+      .addCase(fetchBalanceData.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(fetchBalanceData.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.balanceSheet = action.payload;
       })
+      .addCase(fetchCashData.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(fetchCashData.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.cashFlow = action.payload;
       });
   },
