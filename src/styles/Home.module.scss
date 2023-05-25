@@ -33,12 +33,6 @@ body {
   font-weight: 500;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 45vh;
-}
-
 .arrow,
 .flexEnd {
   align-self: flex-end;
@@ -85,6 +79,31 @@ body {
 
 .navLink {
   color: white;
+}
+
+.searchBar {
+  margin-bottom: 20px;
+
+  input[type='text'] {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 45vh;
+}
+
+.noResults {
+  font-style: italic;
+  padding-left: 10px;
+  padding-top: 20px;
 }
 
 @media screen and (min-width: 768px) {

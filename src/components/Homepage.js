@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { BsArrowRightCircle, BsArrowRepeat } from 'react-icons/bs';
 import { CiMoneyCheck1 } from 'react-icons/ci';
@@ -10,9 +10,26 @@ import styles from '../styles/Home.module.scss';
 import Header from './Header';
 
 const Homepage = () => {
+  const [searchInput, setSearchInput] = useState('');
+
   const {
     incomeStatement, balanceSheet, cashFlow, isLoading,
   } = useSelector((state) => state.data);
+
+  const filteredCards = [
+    {
+      id: 1, name: 'Income Statement', icon: <HiOutlineCash className={styles.incomeIcon} />, value: incomeStatement.revenue,
+    },
+    {
+      id: 2, name: 'Balance Sheet', icon: <MdBalance className={styles.balanceIcon} />, value: balanceSheet.totalAssets,
+    },
+    {
+      id: 3, name: 'Cash Flow', icon: <BsArrowRepeat className={styles.cashflowIcon} />, value: cashFlow.netIncome,
+    },
+    {
+      id: 4, name: 'Equity', icon: <CiMoneyCheck1 className={styles.equityIcon} />, value: balanceSheet.commonStock,
+    },
+  ].filter((card) => card.name.toLowerCase().includes(searchInput.toLowerCase()));
 
   if (isLoading) {
     return (
@@ -56,71 +73,35 @@ const Homepage = () => {
         </div>
       </div>
       <p className={styles.financial}>FINANCIAL STATEMENTS</p>
+
+      <div className={styles.searchBar}>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
+      </div>
+
       <div className={styles.cards}>
-
-        <NavLink to="/income-statement" className={styles.navLink}>
-          <div className={styles.income}>
-            <BsArrowRightCircle className={styles.arrow} />
-            <HiOutlineCash className={styles.incomeIcon} />
-            <div className={styles.stateContainer}>
-              <h4 className={styles.flexEnd}>Income</h4>
-              <h4 className={styles.flexEnd}>Statement</h4>
-              <span className={styles.display}>
-                Revenue: $
-                {' '}
-                {incomeStatement.revenue ? incomeStatement.revenue.toLocaleString() : 'Loading...'}
-              </span>
-            </div>
-          </div>
-        </NavLink>
-
-        <NavLink to="/balance-sheet" className={styles.navLink}>
-          <div className={styles.balance}>
-            <BsArrowRightCircle className={styles.arrow} />
-            <MdBalance className={styles.balanceIcon} />
-            <div className={styles.stateContainer}>
-              <h4 className={styles.flexEnd}>Balance</h4>
-              <h4 className={styles.flexEnd}>Sheet</h4>
-              <span className={styles.display}>
-                Total Assets: $
-                {' '}
-                {balanceSheet.totalAssets ? balanceSheet.totalAssets.toLocaleString() : 'Loading...'}
-              </span>
-            </div>
-          </div>
-        </NavLink>
-
-        <NavLink to="/cash-flow" className={styles.navLink}>
-          <div className={styles.cashflow}>
-            <BsArrowRightCircle className={styles.arrow} />
-            <BsArrowRepeat className={styles.cashflowIcon} />
-            <div className={styles.stateContainer}>
-              <h4 className={styles.flexEnd}>Cash</h4>
-              <h4 className={styles.flexEnd}>Flow</h4>
-              <span className={styles.display}>
-                Net Income: $
-                {' '}
-                {cashFlow.netIncome ? cashFlow.netIncome.toLocaleString() : 'Loading...'}
-              </span>
-            </div>
-          </div>
-        </NavLink>
-
-        <NavLink to="/equity" className={styles.navLink}>
-          <div className={styles.equity}>
-            <BsArrowRightCircle className={styles.arrow} />
-            <CiMoneyCheck1 className={styles.equityIcon} />
-            <div className={styles.stateContainer}>
-              <h4 className={styles.flexEnd}>Equity</h4>
-              <span className={styles.display}>
-                Common Stock: $
-                {' '}
-                {balanceSheet.commonStock ? balanceSheet.commonStock.toLocaleString() : 'Loading...'}
-              </span>
-            </div>
-          </div>
-        </NavLink>
-
+        {filteredCards.length > 0 ? (
+          filteredCards.map((card, index) => (
+            <NavLink key={card.id} to={`/statement/${card.name.toLowerCase().replace(' ', '-')}`} className={styles.navLink}>
+              <div className={index === 1 || index === 2 ? styles.balance : styles.income}>
+                <BsArrowRightCircle className={styles.arrow} />
+                {card.icon}
+                <div className={styles.stateContainer}>
+                  <h4 className={styles.flexEnd}>{card.name}</h4>
+                  <span className={styles.display}>
+                    {card.value ? `${card.name}: $ ${card.value.toLocaleString()}` : 'Loading...'}
+                  </span>
+                </div>
+              </div>
+            </NavLink>
+          ))
+        ) : (
+          <div className={styles.noResults}>No search results</div>
+        )}
       </div>
     </div>
   );
